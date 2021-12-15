@@ -30,7 +30,6 @@ def WriteCSV(data):
 def ReadCSV():
     with open('data.csv',newline='',encoding='utf-8') as file:
         fr = csv.reader(file)
-        #print(list(fr))
         data = list(fr)
     return data
 
@@ -51,7 +50,7 @@ def sumdata():
 ########################################
 GUI = Tk()
 GUI.geometry('600x570')
-GUI.title('โปรแกรมคำนวนหมา')
+GUI.title('โปรแกรมคำนวนหมา V.0.0.1')
 GUI.config(background='#a9f58e')
 
 file = PhotoImage(file='dog.png').subsample(1)
@@ -61,7 +60,7 @@ MG.pack(pady=40)
 L1 = ttk.Label(GUI,text='โปรแกรมขายหมาปิ้ง',font=('Angsana New',30,'bold'),foreground='blue',background='#a9f58e')
 L1.pack()
 
-L2 = ttk.Label(GUI,text='กรอกจำนวนข้อมูลหมาปิ้ง',font=('Angsana New',16),background='#a9f58e')
+L2 = ttk.Label(GUI,text='กรอกจำนวนข้อมูลหมาปิ้ง(ตัว)',font=('Angsana New',16),background='#a9f58e')
 L2.pack()
 
 V_quantity = StringVar()
@@ -99,6 +98,7 @@ def Summarydata(event):
     messagebox.showinfo(title,text)
 
 GUI.bind('<F1>',Summarydata)
+GUI.bind('<F2>',Summarydata)
 
 E1.focus()
 GUI.mainloop()
