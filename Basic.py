@@ -2,6 +2,7 @@ from tkinter import*
 from tkinter import ttk,messagebox
 from datetime import datetime
 import csv
+from tkinter.font import Font
 ########################################
 def timestamp(thai=True):
     if thai:
@@ -86,8 +87,11 @@ def Caculate(event=None):
     V_quantity.set('')
     E1.focus()
 
-B1 = ttk.Button(GUI,text= 'คำนวน',command=Caculate)
-B1.pack(pady=20,ipadx=30,ipady=20)
+s = ttk.Style()
+s.configure('my.TButton', font=('SOV_snit', 30, 'bold'))
+
+B1 = ttk.Button(GUI,text= 'คำนวน',command=Caculate,style='my.TButton')
+B1.pack(pady=20,ipadx=10,ipady=5)
 
 E1.bind('<Return>',Caculate)
 
